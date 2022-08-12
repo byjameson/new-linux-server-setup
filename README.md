@@ -1,6 +1,7 @@
 # new-linux-server-setup
 ```
-When you create a server, it has some limits espacially on mysql. so this is not efficient too much. To fix it, make this setup and you can use maximum of you hardware.
+When you create a server, it has some limits espacially on mysql. so this is not efficient too much.
+To fix it, make this setup and you can use maximum of you hardware.
 
 FOR CENTOS 7
 1- yum update
@@ -49,7 +50,8 @@ pid-file=/var/run/mariadb/mariadb.pid
 
 )
 (
-Also we made too high conf for mysql so we need more ram, to supply it we will create swap 100gb. Create swap with google. Because it can changable for os. If you
+Also we made too high conf for mysql so we need more ram, to supply it we will create swap 100gb.
+Create swap with google. Because it can changable for os. If you
 dont create swap, your mysql will be crash according to our new confs.
 )
 
