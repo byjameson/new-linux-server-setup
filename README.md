@@ -11,7 +11,7 @@ FOR CENTOS 7
   2- bash vst-install.sh
 )
 3-Delete user backup command from cron section on vestacp panel.
-4-Edit /etc/my.cnf file with this code. replace completly
+4-Edit /etc/my.cnf file with this code. replace completely
 (
 
 [mysqld]
