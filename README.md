@@ -54,10 +54,10 @@ dont create swap, your mysql will be crash according to our new confs.
 
 
 5- Delete this file => /usr/share/httpd/noindex/index.html
-6- Go to server section on vestacp panel, and change php.ini, with 
+6- Go to server section on vestacp panel, and change php.ini under httpd section, with 
 (
 make max_execution_time = -1;
-make max_input_time = -1;
+make memory_limit = -1;
 )
 7- Now we are breaking mysql chains, it has too much limits
 (
