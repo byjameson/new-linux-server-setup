@@ -51,7 +51,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 )
 (
 Also we made too high conf for mysql so we need more ram, to supply it we will create swap 100gb.
-Create swap with google. Because it can changable for os. If you
+Create swap with google. Because it can changeable by OS. If you
 dont create swap, your mysql will be crash according to our new confs.
 )
 
