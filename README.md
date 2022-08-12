@@ -1,4 +1,5 @@
 # new-linux-server-setup
+```
 When you create a server, it has some limits espacially on mysql. so this is not efficient too much. To fix it, make this setup and you can use maximum of you hardware.
 
 FOR CENTOS 7
@@ -92,3 +93,4 @@ REBOOT
 
 
 THATS ALL.
+```
