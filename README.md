@@ -44,9 +44,6 @@ long_query_time=99999999999
 log-error=/var/log/mariadb/mariadb.log
 pid-file=/var/run/mariadb/mariadb.pid
 
-#
-# include all files from the config directory
-#
 !includedir /etc/my.cnf.d
 
 )
