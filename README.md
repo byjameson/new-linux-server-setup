@@ -63,36 +63,44 @@ make max_execution_time = -1;
 make memory_limit = -1;
 )
 7- Now we are breaking mysql chains, it has too much limits
-(
 
-To modify the limits, do the following:
 
-mkdir -p /etc/systemd/system/mariadb.service.d/
 
-Inside that directory, create new file limits.conf and add the following to that file:
 
+To check current open file limits.
+ulimit -n
+Note – n for number of open files limits
+Permanently set the new ‘open files’ limit
+Edit the file /etc/security/limits.conf using your favorite Text Editor.
+Add the following for all users to the bottom for of the file and save it.
+* soft nofile 102400
+* hard nofile 102400
+* soft nproc 10240
+* hard nproc 10240
+Edit the file /etc/security/limits.d/90-nproc.conf
+Add the following for all users to the bottom for of the file and save it.
+* soft nofile 1024000
+* hard nofile 1024000
+* soft nproc 10240
+* hard nproc 10240
+root soft nproc unlimited
+Set open_files_limit in my.cnf (MySQL)
+Edit file /etc/my.cnf
+Insert the following under your [mysqld]  and save it.
+[mysqld]
+open_files_limit = 102400
+Find out if any other .conf files are being used with MySQL that overrides the values for open limits:
+Run systemctl status mysqldcommand and it will show something like this
+Drop-In:
+/etc/systemd/system/mariadb.service.d
+└─limits.conf
+This means there is /etc/systemd/system/mariadb.service.d/limts.conf which is loaded with MySQL Server.
+Edit the file and add the following
 [Service]
-  LimitNOFILE = 65535
-
-finally reload systemd with:
-
-systemctl daemon-reload
-and restart mysqld to enable the change:
-
-systemctl restart mariadb
-Now validate that the change was successful by using the following query:
-
-mysql> show variables like '%file%';
-You should find a line like this:
-
-| open_files_limit                      | 65535
-That's it, this way your changes survive MySQL updates.
-
-REBOOT
-
-
-)
-
-
-THATS ALL.
-```
+LimitNOFILE=102400
+Run the following command to apply the changes.
+systemctl daemon-reload && /scripts/restartsrv_mysql
+Reboot your server.
+After the successful reboot of the server, we will again run below SQL Queries.
+SHOW VARIABLES LIKE 'open_files_limit';
+You should see the following:
