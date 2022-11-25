@@ -36,6 +36,7 @@ max_user_connections=0
 wait_timeout=31536000
 interactive_timeout=500000000
 long_query_time=99999999999
+open_files_limit = 102400
 
 #slow_query_log=1
 #slow_query_log_file=/var/log/mysql-slow-queries.log
@@ -84,11 +85,7 @@ Add the following for all users to the bottom for of the file and save it.
 * soft nproc 10240
 * hard nproc 10240
 root soft nproc unlimited
-Set open_files_limit in my.cnf (MySQL)
-Edit file /etc/my.cnf
-Insert the following under your [mysqld]  and save it.
-[mysqld]
-open_files_limit = 102400
+
 Find out if any other .conf files are being used with MySQL that overrides the values for open limits:
 Run systemctl status mysqldcommand and it will show something like this
 Drop-In:
@@ -103,4 +100,4 @@ systemctl daemon-reload && /scripts/restartsrv_mysql
 Reboot your server.
 After the successful reboot of the server, we will again run below SQL Queries.
 SHOW VARIABLES LIKE 'open_files_limit';
-You should see the following:
+Thats All.
