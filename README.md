@@ -1,4 +1,5 @@
 # new-linux-server-setup mysql chain break unlimited source, fastest server mysql process and more. You need power for ai, so these methods gives you that!
+#NOTE : ALL OF THESE CONFIGRATIONS MADE TRUE, IT GIVES "PHP Fatal error: Uncaught mysqli_sql_exception: Resource temporarily unavailable" Error when i try to run more than 1k script. I couldnt figure out this problem. If you have solution for this problem, please push  and we can benefit. Because with this problem, mysql (mariadb) is not useful for ai completely.
 ```
 When you create a server, it has some limits espacially on mysql. so this is not efficient too much.
 To fix it, make this setup and you can use maximum of you hardware.
